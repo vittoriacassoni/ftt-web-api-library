@@ -19,33 +19,31 @@
 </head>
 <body>
 <div class="title">
-    <h1>Animais</h1>   
-    <button onclick="addAnimal()">
-        <i class="fa fa-plus"></i>Adicionar
+    <h1>Empréstimos de livros</h1>   
+    <button onclick="addBook()">
+        <i class="fa fa-plus"></i>Adicionar um novo livro
     </button>
 </div>
 
 <div id="list" class="list">
-    <div class="animal">
+    <div class="book">
         <div class="info">
-            <b>Catarina</b>
-            <b>Poodle</b>
-            <b>Branca</b>
+            <b>Título:A cabana.</b>
+            <b>Autor:William P. Young</b>   
         </div>
         <div class="action">
-            <button onclick="editAnimal('1')">
+            <button onclick="editBook('1')">
                 <i class="fa fa-pencil"></i>
             </button>
-            <button onclick="deleteAnimal('1')">
+            <button onclick="deleteBook('1')">
                 <i class="fa fa-trash"></i>
             </button>
         </div>
     </div>
-    <div class="animal">
+    <div class="book">
         <div class="info">
-            <b>Catarina</b>
-            <b>Poodle</b>
-            <b>Branca</b>
+            <b>Título:A Rainha Vermelha.</b>
+            <b>Autor:Victoria Aveyard</b>
         </div>
         <div class="action">
             <button onclick="openPage(event,'Profile')">
@@ -65,37 +63,25 @@
 <div class="modal" id="modal">
     <div class="modal-content">
         <div class="modal-header">
-            <b id="title-modal">Adicionar Animal</b>
+            <b id="title-modal">Adicionar novo livro</b>
             <span class="close" onclick="closeModal()">&times;</span> 
         </div>
        
-        <form id="form" method="post" action="/animal">
-             <input type="text" id="animal-method" name="animal-method" hidden>
+        <form id="form" method="post" action="/emprestimoLivros">
+             <input type="text" id="book-method" name="book-method" hidden>
             <p>
-                <label for="animal-id">ID: </label>
-                <input type="number" id="animal-id" name="animal-id" required>
+                <label for="book-id">id: </label>
+                <input type="number" id="book-id" name="book-id" required>
+            </p>
+             <p>
+                <label for="book-title">Título: </label>
+                <input type="text" id="book-title" name="book-title" required>
             </p>
             <p>
-                <label for="animal-name">Nome: </label>
-                <input type="text" id="animal-name" name="animal-name" required>
+                <label for="book-author">Autor: </label>
+                <input type="text" id="book-author" name="book-author" required>
             </p>
-            <p>
-                <label for="animal-breed">Raça: </label>
-                <select id="animal-breed" name="animal-breed" required>
-                    <option value="1">Poodle</option>
-                    <option value="2">Lulu da Pomerânia</option>
-                    <option value="3">Lhasa Apso</option>
-                    <option value="4">Shih Tzu</option>
-                    <option value="5">Maltês</option>
-                    <option value="6">Samoieda</option>
-                    <option value="7">Pug</option>
-                              
-                </select>
-            </p>
-            <p>
-                <label for="animal-color">Color: </label>
-                <input type="color" id="animal-color" name="animal-color" required>
-            </p>
+            
              <button type="submit" >
                  Enviar
             </button>

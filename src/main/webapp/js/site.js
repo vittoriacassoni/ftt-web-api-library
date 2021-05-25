@@ -1,67 +1,19 @@
 document.addEventListener("DOMContentLoaded", init, false);
 
-let animalURL = "/animal";
+let bookURL = "/emprestimoLivros";
 
-const labels = [
-  'Poodle',
-  'Lulu da pomerania',
-  'Lhasa Apso',
-  'Shih Tzu',
-  'Maltes',
-  'Samoieda',
-  'Pug'
-];
+
 
 
 function init() {
-    getAnimal(0);
-    getDataChart();
+    getBook(0);
+   
 }
 
-function getDataChart(){
-    const request = new XMLHttpRequest();
-     request.open("GET", "/breed");
 
-     request.onload = function () {
-        const response = JSON.parse(this.responseText); 
-      var data = {
-          labels: labels,
-            datasets: [{
-              label: 'Quantidade',
-              backgroundColor: 'rgb(138, 43, 226)',
-              borderColor: 'rgb(138, 43, 255)',
-              data: response,
-            }]
-      };
-      const config = {
-            type: 'bar',
-            data: data,
-            options: {
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: 'top',
-                },
-                title: {
-                  display: true,
-                  text: 'As racas mais cadastradas'
-                }
-              }
-            },
-          };
-        var myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-        );
-        myChart.reset();
-    }
-    
-  request.send();
-}
-
-function getAnimal(id) {
+function getBook(id) {
      const request = new XMLHttpRequest();
-     request.open("GET", "/animal");
+     request.open("GET", "/emprestimoLivros");
 
      request.onload = function () {
          var divList = "";
@@ -76,17 +28,17 @@ function getAnimal(id) {
 }
 
 function createListItem(item){
-    var div = `<div class="animal">
+    var div = `<div class="book">
         <div class="info">
-            <b>${item.name}</b>
+            <b>${item}</b>
             <b>${returnBreedName(item.breed)}</b>
             <b style="background: ${item.color}; color: ${item.color}">a</b>
         </div>
         <div class="action">
-            <button onclick="editAnimal('${item.id}')">
+            <button onclick="editBook('${item.id}')">
                 <i class="fa fa-pencil"></i>
             </button>
-            <button onclick="deleteAnimal('${item.id}')">
+            <button onclick="deleteBook('${item.id}')">
                 <i class="fa fa-trash"></i>
             </button>
         </div>
@@ -94,38 +46,10 @@ function createListItem(item){
     return div;
 }
 
-function returnBreedName(breed){
-    switch (breed) {
-        case 1:
-          return "Poodle";
-          break;
-        case 2:
-            return "Lulu da Pomerania";
-            break
-        case 3:
-            return "Lhasa Apso";
-            break;
-        case 4:
-            return "Shih Tzu";
-            break;
-        case 5:
-            return "Maltes";
-            break
-        case 6:
-            return "Samoieda";
-            break;
-        case 7:
-            return "Pug";
-            break;
-        default:
-            return "Nenhuma";
-            break;
-    }
-}
 
-function addAnimal(){
-    clearAnimal();
-    document.getElementById("title-modal").innerHTML = "Adicionar Animal";
+function addBook(){
+    clearBook();
+    document.getElementById("title-modal").innerHTML = "Adicionar Livro";
     document.getElementById("modal").style.display = "block";
     document.getElementById("form").setAttribute("method", "POST");
 }
@@ -134,32 +58,31 @@ function closeModal(){
     document.getElementById("modal").style.display = "none";
 }
 
-function foundAnimal(id){
+function foundBook(id){
 
       const request = new XMLHttpRequest();
-     request.open("GET", `/animal?animalId=${id}`);
+     request.open("GET", `/book?bookId=${id}`);
 
      request.onload = function () {
         const response = JSON.parse(this.responseText);
         console.log(response);
-        document.getElementById("animal-id").value = response.id;
-        document.getElementById("animal-id").readOnly = true;
-        document.getElementById("animal-name").value = response.name;
-        document.getElementById("animal-breed").value = response.breed;
-        document.getElementById("animal-color").value = response.color;
+        document.getElementById("book-id").value = response.id;
+        document.getElementById("book-id").readOnly = true;
+        document.getElementById("book-title").value = response.title;
+        document.getElementById("book-author").value = response.author;
     }
     
   request.send();
   
 }
-function editAnimal(id){
-    clearAnimal();
-    foundAnimal(id);
-    document.getElementById("title-modal").innerHTML = "Editar Animal";
+function editBook(id){
+    clearBook();
+    foundBook(id);
+    document.getElementById("title-modal").innerHTML = "Editar Livro";
     document.getElementById("modal").style.display = "block";
 }
 
-function deleteAnimal(id){
+function deleteBook id){
     Swal.fire({
         title: 'Tem certeza?',
         text: "Nao sera possivel reverter!",
@@ -172,7 +95,7 @@ function deleteAnimal(id){
       }).then((result) => {
         if (result.isConfirmed) {
             const request = new XMLHttpRequest();
- 	      request.open("DELETE", `/animal?animalId=${id}`);
+ 	      request.open("DELETE", `/emprestimoLivros?bookId=${id}`);
 		  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
  	      request.onload = function () {
  	    	  
@@ -193,14 +116,13 @@ function deleteAnimal(id){
       })
 }
 
-function clearAnimal(){
-    document.getElementById("animal-id").value = "";
-    document.getElementById("animal-name").value = "";
-    document.getElementById("animal-breed").value = "1";
-    document.getElementById("animal-color").value = "";
+function clearBook(){
+    document.getElementById("book-id").value = "";
+    document.getElementById("book-title").value = "";
+    document.getElementById("book-author").value = "";
 }
 
-function saveAnimal(){
-    getAnimal(0);
+function saveBook(){
+    getBook(0);
     closeModal();
 }

@@ -6,8 +6,8 @@
 package ec.ftt.api;
 
 import com.google.gson.Gson;
-import ec.ftt.dao.AnimalDao;
-import ec.ftt.model.Animal;
+import ec.ftt.dao.BookDao;
+import ec.ftt.model.Book;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -29,20 +29,6 @@ public class Breed extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-    }
-
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        AnimalDao animalDAO = new AnimalDao();
-	    	
-	List<Integer> breeds = animalDAO.CountBreedAnimals();
-       
-	Gson gson = new Gson();
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-	response.getWriter().append(gson.toJson(breeds));
     }
 
   

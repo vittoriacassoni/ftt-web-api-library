@@ -22,34 +22,34 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.list .animal{
+.list .book{
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.list .animal:hover{
+.list .book:hover{
     
     border-left: 8px solid #7b3c58;
     box-shadow: 0 0 1em #a7a7a7;
 }
 
-.list .animal .info{
+.list .book .info{
     display: grid;
     grid-template-columns: 300px 200px 200px;
     align-items: center;
 }
 
-.list .animal .action{
+.list .book .action{
     display: flex;
 }
 
-.list .animal .action button{
+.list .book .action button{
     margin-right: 15px;
 }
 
-.list .animal .action button, .title button, form button{
+.list .book .action button, .title button, form button{
   padding: 6px;
   width: auto;
   border: none;
@@ -65,7 +65,7 @@ body{
   font-size: 20px;
 }
 
-.list .animal .action i, .title i{
+.list .book .action i, .title i{
     color: #7b3c58;
 }
 
