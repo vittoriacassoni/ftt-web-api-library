@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<title>FTT - User</title>
+<style>
+	body {font-family:Verdana;}
+</style>
+<link rel="stylesheet" href="css/site.css">
+<link
+      rel="stylesheet"
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script src="js/site.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+<div class="title">
+    <h1>Animais</h1>   
+    <button onclick="addAnimal()">
+        <i class="fa fa-plus"></i>Adicionar
+    </button>
+</div>
+
+<div id="list" class="list">
+    <div class="animal">
+        <div class="info">
+            <b>Catarina</b>
+            <b>Poodle</b>
+            <b>Branca</b>
+        </div>
+        <div class="action">
+            <button onclick="editAnimal('1')">
+                <i class="fa fa-pencil"></i>
+            </button>
+            <button onclick="deleteAnimal('1')">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+    <div class="animal">
+        <div class="info">
+            <b>Catarina</b>
+            <b>Poodle</b>
+            <b>Branca</b>
+        </div>
+        <div class="action">
+            <button onclick="openPage(event,'Profile')">
+                <i class="fa fa-pencil"></i>
+            </button>
+            <button onclick="openPage(event,'Profile')">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>
+    
+<div style="margin-top: 30px;">
+  <canvas id="myChart"></canvas>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <b id="title-modal">Adicionar Animal</b>
+            <span class="close" onclick="closeModal()">&times;</span> 
+        </div>
+       
+        <form id="form" method="post" action="/animal">
+             <input type="text" id="animal-method" name="animal-method" hidden>
+            <p>
+                <label for="animal-id">ID: </label>
+                <input type="number" id="animal-id" name="animal-id" required>
+            </p>
+            <p>
+                <label for="animal-name">Nome: </label>
+                <input type="text" id="animal-name" name="animal-name" required>
+            </p>
+            <p>
+                <label for="animal-breed">Raça: </label>
+                <select id="animal-breed" name="animal-breed" required>
+                    <option value="1">Poodle</option>
+                    <option value="2">Lulu da Pomerânia</option>
+                    <option value="3">Lhasa Apso</option>
+                    <option value="4">Shih Tzu</option>
+                    <option value="5">Maltês</option>
+                    <option value="6">Samoieda</option>
+                    <option value="7">Pug</option>
+                              
+                </select>
+            </p>
+            <p>
+                <label for="animal-color">Color: </label>
+                <input type="color" id="animal-color" name="animal-color" required>
+            </p>
+             <button type="submit" >
+                 Enviar
+            </button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
