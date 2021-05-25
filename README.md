@@ -6,7 +6,7 @@
 
 ## Projeto
 
-- O projeto tem intuito de fazer um CRUD simples de Animal e mostrar em gráfico a raça mais cadastrada
+- O aplicativo tem intuito de realizar um CRUD de livros para uma biblioteca, sendo possível também o empréstimo e devolução do mesmo pelos usuários. 
   <br />
   <br />
  
@@ -24,15 +24,25 @@
 - CSS
 - JavaScript
 - Jquery
-- Chart.js
 - Java WebServelet
 - Tomcat
 - Maven
 
-## Desenvolvedores
+## Desenvolvedoras
 
-- Anderson Dias
-  > GitHub [@anderuso-db](https://github.com/Anderuso-db) &nbsp;&middot;&nbsp;
+
+- Bruna Cristina Torres
+
+  > GitHub [@torresbc](https://github.com/torresbc) &nbsp;&middot;&nbsp;
+
+- Mariana Carnevale de Lima
+
+  > GitHub [@maricarnevale](https://github.com/maricarnevale) &nbsp;&middot;&nbsp;
+
+- Laura Alves Ferreira
+
+  > GitHub [@alveslaura](https://github.com/alveslaura) &nbsp;&middot;&nbsp;
 
 - Vittoria Cassoni
+
   > GitHub [@vittoriacassoni](https://github.com/vittoriacassoni) &nbsp;&middot;&nbsp;
