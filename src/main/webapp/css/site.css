@@ -12,7 +12,7 @@ body{
 }
 
 .list .header{
-    background:#8A2BE2;
+    background:#7b3c58;
     color: #fff;
     border-radius: 4px;
     padding: 10px;
@@ -30,7 +30,8 @@ body{
 }
 
 .list .animal:hover{
-    border-left: 8px solid #8A2BE2;
+    
+    border-left: 8px solid #7b3c58;
     box-shadow: 0 0 1em #a7a7a7;
 }
 
@@ -65,7 +66,7 @@ body{
 }
 
 .list .animal .action i, .title i{
-    color: #8A2BE2;
+    color: #7b3c58;
 }
 
 .title{
@@ -79,7 +80,7 @@ body{
 }
 
 .title button, form button{
-    border: 2px solid #8A2BE2;
+    border: 2px solid #7b3c58;
     border-radius: 8px;
     padding: 8px;
 }
@@ -113,7 +114,7 @@ body{
 .modal-header{
     display: flex;
     justify-content: space-between;
-    background: #8A2BE2;
+    background: #7b3c58;
     color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -139,7 +140,7 @@ body{
 
 form input, form select{
   border: none;
-  border-bottom: 2px solid #8A2BE2;
+  border-bottom: 2px solid #7b3c58;
   padding: 8px;
 }
 
