@@ -1,19 +1,15 @@
 document.addEventListener("DOMContentLoaded", init, false);
 
-let bookURL = "/emprestimoLivros";
-
-
-
+let bookURL = "/book";
 
 function init() {
-    getBook(0);
-   
+    getBook(0); 
 }
 
 
 function getBook(id) {
      const request = new XMLHttpRequest();
-     request.open("GET", "/emprestimoLivros");
+     request.open("GET", "/book");
 
      request.onload = function () {
          var divList = "";
@@ -30,9 +26,8 @@ function getBook(id) {
 function createListItem(item){
     var div = `<div class="book">
         <div class="info">
-            <b>${item}</b>
-            <b>${returnBreedName(item.breed)}</b>
-            <b style="background: ${item.color}; color: ${item.color}">a</b>
+            <b>${item.title}</b>
+            <b>${item.author}</b>
         </div>
         <div class="action">
             <button onclick="editBook('${item.id}')">
@@ -82,7 +77,7 @@ function editBook(id){
     document.getElementById("modal").style.display = "block";
 }
 
-function deleteBook id){
+function deleteBook (id){
     Swal.fire({
         title: 'Tem certeza?',
         text: "Nao sera possivel reverter!",
@@ -95,7 +90,7 @@ function deleteBook id){
       }).then((result) => {
         if (result.isConfirmed) {
             const request = new XMLHttpRequest();
- 	      request.open("DELETE", `/emprestimoLivros?bookId=${id}`);
+ 	      request.open("DELETE", `/book?bookId=${id}`);
 		  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
  	      request.onload = function () {
  	    	  

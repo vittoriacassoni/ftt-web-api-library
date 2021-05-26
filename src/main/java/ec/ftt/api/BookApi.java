@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/emprestimoLivros")
+@WebServlet("/book")
 public class BookApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -126,7 +126,6 @@ public class BookApi extends HttpServlet {
 	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            response.setStatus(418); //200 - OK - Padrão (Default)
 
             if (request.getParameter("bookId") == null)
                 response.sendError(407, "Informe o ID do usuário a ser retornado!!!" );

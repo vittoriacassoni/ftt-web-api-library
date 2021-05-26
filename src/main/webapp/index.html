@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
-<title>FTT - User</title>
+<title>FTT - Library</title>
 <style>
 	body {font-family:Verdana;}
 </style>
@@ -40,20 +40,6 @@
             </button>
         </div>
     </div>
-    <div class="book">
-        <div class="info">
-            <b>Título:A Rainha Vermelha.</b>
-            <b>Autor:Victoria Aveyard</b>
-        </div>
-        <div class="action">
-            <button onclick="openPage(event,'Profile')">
-                <i class="fa fa-pencil"></i>
-            </button>
-            <button onclick="openPage(event,'Profile')">
-                <i class="fa fa-trash"></i>
-            </button>
-        </div>
-    </div>
 </div>
     
 <div style="margin-top: 30px;">
@@ -67,7 +53,7 @@
             <span class="close" onclick="closeModal()">&times;</span> 
         </div>
        
-        <form id="form" method="post" action="/emprestimoLivros">
+        <form id="form" method="post" action="/book">
              <input type="text" id="book-method" name="book-method" hidden>
             <p>
                 <label for="book-id">id: </label>
