@@ -23,11 +23,13 @@ function getBook(id) {
   request.send();
 }
 
+
 function createListItem(item){
     var div = `<div class="book">
         <div class="info">
             <b>${item.title}</b>
             <b>${item.author}</b>
+            <b>${item.status}</b>
         </div>
         <div class="action">
             <button onclick="editBook('${item.id}')">
@@ -96,7 +98,7 @@ function deleteBook (id){
  	    	  
  	      }
  	     request.onerror = function () {
- 	        alert("erro ao executar a requisição");
+ 	        alert("erro ao executar a requisiï¿½ï¿½o");
  	      };
  	      request.send();
               
@@ -120,4 +122,8 @@ function clearBook(){
 function saveBook(){
     getBook(0);
     closeModal();
+}
+
+function editStatus(){
+	
 }
