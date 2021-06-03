@@ -32,6 +32,9 @@ function createListItem(item){
             <b>${item.status}</b>
         </div>
         <div class="action">
+        	<button onclick="editStatus('${item.id}')">
+                <i class="fa fa-undo"></i>      
+            </button>          
             <button onclick="editBook('${item.id}')">
                 <i class="fa fa-pencil"></i>
             </button>
@@ -67,6 +70,7 @@ function foundBook(id){
         document.getElementById("book-id").readOnly = true;
         document.getElementById("book-title").value = response.title;
         document.getElementById("book-author").value = response.author;
+        document.getElementById("book-status").value = response.status;
     }
     
   request.send();
@@ -124,6 +128,36 @@ function saveBook(){
     closeModal();
 }
 
-function editStatus(){
-	
+function editStatus(id){
+	Swal.fire({
+        title: 'Este livro ja foi devolvido?',
+        text: "Confirmar devolucao!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            const request = new XMLHttpRequest();
+ 	      request.open("PUT", `/book?bookId=${id}`);
+		  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+ 	      request.onload = function () {
+ 	    	  
+ 	      }
+ 	     request.onerror = function () {
+ 	        alert("erro ao executar a requisi��o");
+ 	      };
+ 	      request.send();
+              
+          Swal.fire(
+            'Devolvido!',
+            '',
+            'success'
+          )
+  
+        location.reload();
+        }
+      })
 }

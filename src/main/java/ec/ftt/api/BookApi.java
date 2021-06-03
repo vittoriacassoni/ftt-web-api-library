@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet("/book")
+@WebServlet("/FTT-WEB-091//book")
 public class BookApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -84,7 +84,8 @@ public class BookApi extends HttpServlet {
 		Book a = new Book(
 				request.getParameter("book-id"),
 				request.getParameter("book-title"),
-				request.getParameter("book-author")
+				request.getParameter("book-author"),
+				request.getParameter("book-status")				
 				);
 		
 		BookDao bookDao = new BookDao();
@@ -111,10 +112,13 @@ public class BookApi extends HttpServlet {
             Book a = new Book(
 		request.getParameter("book-id"),
 		request.getParameter("book-title"),
-		request.getParameter("book-author")
+		request.getParameter("book-author"),
+		request.getParameter("book-status")	
             );
             BookDao bookDAO = new BookDao();
-		
+            
+            a.setStatus("Disponivel"); 
+            
             bookDAO.updateBook(a);
 		
             System.out.println(a);

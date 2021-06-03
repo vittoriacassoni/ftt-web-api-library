@@ -24,11 +24,12 @@ public class BookDao {
         
     	try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO ftt.BOOK (TITLE,AUTHOR) VALUES (?, ?)");
+                    .prepareStatement("INSERT INTO ftt.BOOK (TITLE,AUTHOR,STATUS) VALUES (?, ?, ?)");
             
             // Parameters start with 1
             preparedStatement.setString(1, book.getTitle());
             preparedStatement.setString(2, book.getAuthor());
+            preparedStatement.setString(3, book.getStatus());
         
             preparedStatement.executeUpdate();
 
@@ -64,13 +65,14 @@ public class BookDao {
     public void updateBook(Book book) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("UPDATE ftt.BOOK SET TITLE=?, AUTHOR=? WHERE ID=?");
+                    .prepareStatement("UPDATE ftt.BOOK SET TITLE=?, AUTHOR=?, STATUS=? WHERE ID=?");
             
             // Parameters start with 1
             preparedStatement.setString(1, book.getTitle());
             preparedStatement.setString(2, book.getAuthor());
+            preparedStatement.setString(3, book.getAuthor());
             
-            preparedStatement.setLong(3, book.getId());
+            preparedStatement.setLong(4, book.getId());
             
             preparedStatement.executeUpdate();
 
@@ -95,6 +97,7 @@ public class BookDao {
             	book.setId(rs.getLong("ID"));
                 book.setTitle(rs.getString("TITLE"));
                 book.setAuthor(rs.getString("AUTHOR"));
+                book.setAuthor(rs.getString("STATUS"));
 
                 bookList.add(book);
             }
@@ -132,7 +135,8 @@ public class BookDao {
             	bookOutput.setId(rs.getLong("ID"));
             	bookOutput.setTitle(rs.getString("TITLE"));
             	bookOutput.setAuthor(rs.getString("AUTHOR"));
-
+            	bookOutput.setAuthor(rs.getString("STATUS"));
+            	
             }
         } catch (SQLException e) {
             e.printStackTrace();
