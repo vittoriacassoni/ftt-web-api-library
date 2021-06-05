@@ -6,23 +6,26 @@ public final class Book {
 
 	private long id;
 	private String title,
-	               author;
+	               author,
+	               status;
 	
 	public Book() {
 		
 	}
-	public Book(String id, String title, String author) {
+	public Book(String id, String title, String author, String status) {
 		super();
 		setId(id);
 		setTitle(title);
 		setAuthor(author);
+		setStatus(status);
 	}
 	
-	public Book(long id, String title, String author) {
+	public Book(long id, String title, String author, String status) {
 		super();
 		setId(id);
 		setTitle(title);
 		setAuthor(author);
+		setStatus(status);
 	}
 	/**
 	 * @return the id
@@ -70,15 +73,25 @@ public final class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+	/**
+	 * @param color the color to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", status =" + status + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(title, id, author);
+		return Objects.hash(title, id, author, status);
 	}
 
 	@Override

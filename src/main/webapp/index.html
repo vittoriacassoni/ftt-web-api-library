@@ -29,9 +29,13 @@
     <div class="book">
         <div class="info">
             <b>Título:A cabana.</b>
-            <b>Autor:William P. Young</b>   
+            <b>Autor:William P. Young</b>
+            <b>Status:Disponível</b>   
         </div>
         <div class="action">
+         	<button onclick="editStatus('1')">
+                <i class="fa fa-undo"></i>
+            </button>            
             <button onclick="editBook('1')">
                 <i class="fa fa-pencil"></i>
             </button>
@@ -53,7 +57,7 @@
             <span class="close" onclick="closeModal()">&times;</span> 
         </div>
        
-        <form id="form" method="post" action="/book">
+        <form id="form" method="post" action="/FTT-WEB-091/book">
              <input type="text" id="book-method" name="book-method" hidden>
             <p>
                 <label for="book-id">id: </label>
