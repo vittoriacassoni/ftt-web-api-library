@@ -48,13 +48,15 @@ public class BookApi extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             String bookId = request.getParameter("bookId");
-             
+             System.out.println("deu get");
+              System.out.println(bookId);
 	    if(bookId != null) {
 	    	long id = Long.valueOf(bookId);
-	    	
+	    	System.out.println(id);
 	    	BookDao bookDAO = new BookDao();
-	    	
 	        Book book = bookDAO.getBookById(id);
+                
+	    	System.out.println(book.getAuthor());
                 System.out.println(book);
 	     	Gson gson = new Gson();
 	    	response.getWriter().append(gson.toJson(book));
