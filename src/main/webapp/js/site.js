@@ -1,15 +1,23 @@
 document.addEventListener("DOMContentLoaded", init, false);
 
-let bookURL = "/book";
+let bookURL = "/FTT-WEB-091//book";
 
 function init() {
     getBook(0); 
+    
+    $.getJSON('https://allugofrases.herokuapp.com/frases/random', function(data) {
+        var div = `<b>"${data.frase}"</b> <br>
+                   Livro: ${data.livro} <br>
+                   Autor: ${data.autor}`;
+        
+        document.getElementById('quote').innerHTML = div;
+    });
 }
 
 
 function getBook(id) {
      const request = new XMLHttpRequest();
-     request.open("GET", "/book");
+     request.open("GET", "/FTT-WEB-091//book");
 
      request.onload = function () {
          var divList = "";
@@ -25,6 +33,7 @@ function getBook(id) {
 
 
 function createListItem(item){
+    console.log(item);
     var div = `<div class="book">
         <div class="info">
             <b>${item.title}</b>
@@ -32,9 +41,13 @@ function createListItem(item){
             <b>${item.status}</b>
         </div>
         <div class="action">
-        	<button onclick="editStatus('${item.id}')">
+            ${item.status == 'Disponivel' ? 
+            `<button onclick="editStatus('${item.id}')">
                 <i class="fa fa-undo"></i>      
-            </button>          
+            </button>`  :      
+            `<button onclick="editStatusGet('${item.id}')">
+                <i class="fa fa-download"></i>      
+            </button>`  }
             <button onclick="editBook('${item.id}')">
                 <i class="fa fa-pencil"></i>
             </button>
@@ -61,7 +74,7 @@ function closeModal(){
 function foundBook(id){
 
       const request = new XMLHttpRequest();
-     request.open("GET", `/book?bookId=${id}`);
+     request.open("GET", `/FTT-WEB-091//book?bookId=${id}`);
 
      request.onload = function () {
         const response = JSON.parse(this.responseText);
@@ -96,7 +109,7 @@ function deleteBook (id){
       }).then((result) => {
         if (result.isConfirmed) {
             const request = new XMLHttpRequest();
- 	      request.open("DELETE", `/book?bookId=${id}`);
+ 	      request.open("DELETE", `/FTT-WEB-091//book?bookId=${id}`);
 		  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
  	      request.onload = function () {
  	    	  
@@ -141,7 +154,41 @@ function editStatus(id){
       }).then((result) => {
         if (result.isConfirmed) {
             const request = new XMLHttpRequest();
- 	      request.open("PUT", `/book?bookId=${id}`);
+ 	      request.open("PUT", `/FTT-WEB-091//book?bookId=${id}`);
+		  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+ 	      request.onload = function () {
+ 	    	  
+ 	      }
+ 	     request.onerror = function () {
+ 	        alert("erro ao executar a requisi��o");
+ 	      };
+ 	      request.send();
+              
+          Swal.fire(
+            'Devolvido!',
+            '',
+            'success'
+          )
+  
+        location.reload();
+        }
+      })
+}
+
+function editStatusGet(id){
+	Swal.fire({
+        title: 'Deseja pegar esse livro para emprestimo?',
+        text: "",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim!',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            const request = new XMLHttpRequest();
+ 	      request.open("PUT", `/FTT-WEB-091//book?bookId=${id}`);
 		  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
  	      request.onload = function () {
  	    	  

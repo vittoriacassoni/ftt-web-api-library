@@ -160,3 +160,9 @@ form p {
     grid-template-columns: 80px 1fr;
     align-items: center;
 }
+
+.quote{
+    margin-top: 20px;
+    border: 2px dashed #7b3c58;
+    padding: 10px;
+}

@@ -7,16 +7,19 @@
 ## Projeto
 
 - O aplicativo tem intuito de realizar um CRUD de livros para uma biblioteca, sendo possível também o empréstimo e devolução do mesmo pelos usuários. 
+Foi utilizado uma API externa para exibição de frases famosas de livros (https://allugofrases.herokuapp.com)
   <br />
   <br />
  
-<img src="https://drive.google.com/uc?export=view&id=1x7Nh_sJoQcDpwzCKcsKKy4Qys8A8ki25" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
+<img src="https://drive.google.com/uc?export=view&id=18sV5a77bY06dI27GR5CeJio75aY1hYj2" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
  
-<img src="https://drive.google.com/uc?export=view&id=1RTbdwVJRiSa7gO2E3k-Kl1nI5bsHyXhm" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
+<img src="https://drive.google.com/uc?export=view&id=1G8jG5T9vyWrjsKqPDpE7cRbtxUptBgf5" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
  
-<img src="https://drive.google.com/uc?export=view&id=1XD7a-eTY7FBmUAAhSOs6-wAodIIhqtgt" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
+<img src="https://drive.google.com/uc?export=view&id=1LQJAE7-tgY9CGZejJWyANO0IY59kSIdp" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
  
-<img src="https://drive.google.com/uc?export=view&id=1UnWymW8XyOWPfhrVLu5Bn_jek2lAOjKY" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
+<img src="https://drive.google.com/uc?export=view&id=1ooBh-gSNgOUeA-g5SQ8lPBtOcorrk0AN" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
+
+<img src="https://drive.google.com/uc?export=view&id=1Q3IvBqLVEDHO8M7wMVg2jk_v9DDWBF8g" style="width: 650px; max-width: 100%; height: auto" title="Exemplo" />
 
 ## Ferramentas
 

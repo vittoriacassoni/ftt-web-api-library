@@ -70,7 +70,7 @@ public class BookDao {
             // Parameters start with 1
             preparedStatement.setString(1, book.getTitle());
             preparedStatement.setString(2, book.getAuthor());
-            preparedStatement.setString(3, book.getAuthor());
+            preparedStatement.setString(3, book.getStatus());
             
             preparedStatement.setLong(4, book.getId());
             
@@ -97,7 +97,7 @@ public class BookDao {
             	book.setId(rs.getLong("ID"));
                 book.setTitle(rs.getString("TITLE"));
                 book.setAuthor(rs.getString("AUTHOR"));
-                book.setAuthor(rs.getString("STATUS"));
+                book.setStatus(rs.getString("STATUS"));
 
                 bookList.add(book);
             }
@@ -135,7 +135,7 @@ public class BookDao {
             	bookOutput.setId(rs.getLong("ID"));
             	bookOutput.setTitle(rs.getString("TITLE"));
             	bookOutput.setAuthor(rs.getString("AUTHOR"));
-            	bookOutput.setAuthor(rs.getString("STATUS"));
+            	bookOutput.setStatus(rs.getString("STATUS"));
             	
             }
         } catch (SQLException e) {
